@@ -33,3 +33,13 @@ development/debug
 Development/ipch/development-c7f77981/development-38dd684f.ipch
 Development/Development.opensdf
 Development/Development.sdf
+
+###
+
+
+unitTests/unitTests/debug
+unitTests/debug
+unitTests/unitTests.opensdf
+unitTests/unitTests.sdf
+unitTests/ipch/unittests-8fd1c8d1/unittests-4cf9b73f.ipch
+Matrics_Functions/ipch/matrics_functions-467c7c99/matrix_functions-fd59bc99.ipch
