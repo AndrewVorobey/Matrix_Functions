@@ -11,3 +11,16 @@
 *.lai
 *.la
 *.a
+
+# временные файлы сборки
+debug/*
+release/*
+
+Matrics_Functions/debug/*
+Matrics_Functions/release/*
+
+Matrics_Functions/Matrics_Functions/debug/*
+Matrics_Functions/Matrics_Functions/release/*
+Matrics_Functions/Matrics_Functions.sdf
+Matrics_Functions/ipch/matrics_functions-467c7c99/matrics_functions-af4149d7.ipch
+Matrics_Functions/Matrics_Functions.opensdf
