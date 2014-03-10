@@ -2,25 +2,15 @@
 #include <string>
 namespace Toplitz_Matrix
 {
-	
-	template<class TIndex, class TElement>
-	class LongVector
+	typedef int TIndex;
+	typedef int TElement;
+	class Vector
 	{
 		
 	public:
-		LongVector(std::string FileName = "");
-		~LongVector(void);
-		TElement& operator[](TIndex);//доступ к произвольному элементу
-		
-		class Iterator
-		{
-		public:
-			Iterator(LongVector* obj):_obj(obj){}
-			TElement& at();
-			TElement& operator++();
-			TElement& operator--();
-		private:
-			LongVector* _obj;
-		};
+		Vector();
+		~Vector(void);
+		virtual TElement& operator[](TIndex) = 0;//доступ к произвольному элементу
+		virtual void push_back(TElement) = 0;
 	};
 }

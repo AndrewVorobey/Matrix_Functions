@@ -3,17 +3,12 @@
 
 namespace Toplitz_Matrix
 {
-
-	
-	template<class TIndex, class TElement>
-	LongVector<TIndex,TElement>::LongVector(std::string FileName)
+	Vector::Vector()
 	{
 		//TODO
 	}
 
-	
-	template<class TIndex, class TElement>
-	LongVector<TIndex,TElement>::~LongVector(void)
+	Vector::~Vector(void)
 	{
 		//TODO
 	}

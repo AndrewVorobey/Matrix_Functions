@@ -2,17 +2,17 @@
 //
 
 #include "stdafx.h"
+#include "LongVector.h"
+#include "LongMatrix.h"
 
 namespace Toplitz_Matrix
 {
-	template <class vec>
-	vec* DurbinAlgorithm(vec matrix);
 
-	template <class vec>
-	vec* LevinsonAlgorithm(vec matrix, vec b);
+	Vector* DurbinAlgorithm(Vector& matrix);
 
-	template <class vec,class mass>
-	mass* TrenchAlgorithm(vec matrix);
+	Vector* LevinsonAlgorithm(Vector& matrix, Vector& b);
+
+	Matrix* TrenchAlgorithm(Vector& matrix);
 
 	//������ ����������, �� ���������� ����������� 
 	namespace Detail
