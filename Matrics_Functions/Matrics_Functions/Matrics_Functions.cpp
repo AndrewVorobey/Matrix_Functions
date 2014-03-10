@@ -3,13 +3,21 @@
 
 #include "stdafx.h"
 
-namespace Matrix_Functions
+namespace Toplitz_Matrix
 {
-	//TODO
-	//
-	// В этом месте будет реализован интерфейс программы. 
-	//
-	//
-	
+	template <class vec>
+	vec* Durbin(vec matrix);
+
+	template <class vec>
+	vec* Levinson(vec matrix, vec b);
+
+	template <class vec,class mass>
+	mass* Trench (vec matrix);
+
+	//детали реализации, не являющиеся интерфейсом 
+	namespace Detail
+	{ 
+
+	}
 }
 
