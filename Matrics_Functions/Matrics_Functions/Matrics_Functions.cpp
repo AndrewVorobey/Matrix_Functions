@@ -1,4 +1,4 @@
-// Matrics_Functions.cpp: определяет экспортированные функции для приложения DLL.
+// Matrics_Functions.cpp: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ DLL.
 //
 
 #include "stdafx.h"
@@ -6,15 +6,15 @@
 namespace Toplitz_Matrix
 {
 	template <class vec>
-	vec* Durbin(vec matrix);
+	vec* DurbinAlgorithm(vec matrix);
 
 	template <class vec>
-	vec* Levinson(vec matrix, vec b);
+	vec* LevinsonAlgorithm(vec matrix, vec b);
 
 	template <class vec,class mass>
-	mass* Trench (vec matrix);
+	mass* TrenchAlgorithm(vec matrix);
 
-	//детали реализации, не являющиеся интерфейсом 
+	//пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 
 	namespace Detail
 	{ 
 
