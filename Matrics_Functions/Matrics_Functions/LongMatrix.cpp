@@ -4,12 +4,12 @@
 
 namespace  Toplitz_Matrix
 {
-Matrix::Matrix(void)
-{
-}
+	Matrix::Matrix(void)
+	{
+	}
 
 
-Matrix::~Matrix(void)
-{
-}
+	Matrix::~Matrix(void)
+	{
+	}
 }

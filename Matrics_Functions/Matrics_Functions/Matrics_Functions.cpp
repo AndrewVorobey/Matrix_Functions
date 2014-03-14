@@ -14,7 +14,7 @@ namespace Toplitz_Matrix
 
 	Matrix* TrenchAlgorithm(Vector& matrix);
 
-	//������ ����������, �� ���������� ����������� 
+	//Private functions and objects
 	namespace Detail
 	{ 
 
