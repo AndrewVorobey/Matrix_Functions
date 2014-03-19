@@ -10,7 +10,7 @@ namespace Toplitz_Matrix
 	public:
 		Vector();
 		~Vector(void);
-		virtual TElement& operator[](TIndex) = 0;//доступ к произвольному элементу
-		virtual void push_back(TElement) = 0;
+		virtual TElement& operator[](const TIndex& i) = 0;
+		virtual void push_back(const TElement& el) = 0;
 	};
 }

@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "LongVector.h"
+#include "RamVector.h"
 #include "LongMatrix.h"
 
 namespace Toplitz_Matrix
