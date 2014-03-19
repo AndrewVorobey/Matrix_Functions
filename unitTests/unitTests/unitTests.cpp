@@ -14,7 +14,7 @@ void tests();
 
 int main()
 {
-	Matrix_Functions::Function();//пример вызова функции из тестируемой библиотеки
+	Toplitz_Matrix::Vector* vec = new Toplitz_Matrix::RamVector();
 	return 0;
 }
 
