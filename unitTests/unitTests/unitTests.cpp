@@ -54,6 +54,12 @@ void testVector1()
 		}
 		
 	}
+	(*vec1).push_back(300);
+	if((*vec1).size() != 20001)
+	{
+		cout<<"Ошибка, размер вектора при использовании функции push_back не увеличился";
+		f=FALSE;
+	}
 	if(f) cout <<"Проверка прошла успешно";
 }
 void testVector2()
