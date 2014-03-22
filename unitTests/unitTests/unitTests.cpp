@@ -13,7 +13,7 @@ using std::cin;
 
 void tests();
 void testVector1();
-
+void testVector2();
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -27,6 +27,7 @@ int main()
 void tests()
 {
 	testVector1();
+	testVector2();
 	//тут должны быть вызваны функции-юнит тестов.
 	//Каждый юнит тест должен быть в отдельной функции. Тут только вызовы. 
 }
@@ -54,5 +55,26 @@ void testVector1()
 		
 	}
 	if(f) cout <<"Проверка прошла успешно";
+}
+void testVector2()
+{
+	bool flag=TRUE;
+	Toplitz_Matrix::Vector* vec2 = new Toplitz_Matrix::RamVector(1000);
+	if((*vec2).size() != 1000)
+	{
+		cout<<"Конструктор с параметром работает неверно";
+		flag= FALSE;
+	}
+	else
+	{
+		for (int i=0; i<1000; i++)
+			if ((*vec2)[i]!=0)
+			{
+				cout<<"Ошибка в работе конструктора с параметром, неверно инициализирован по умолчанию элемент с индексом"<<i;
+				flag=FALSE;
+			}
+	}
+	if (flag) 
+		cout <<"\nПроверка конструктора прошла успешно";
 }
 
