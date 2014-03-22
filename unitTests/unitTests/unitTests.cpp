@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include <math.h>
 #include <iostream>
 #include "../../Matrics_Functions/Matrics_Functions/Matrics_Functions.cpp"
 
@@ -15,18 +16,27 @@ void tests();
 void testVector1()
 {
 	Toplitz_Matrix::Vector* vec1 = new Toplitz_Matrix::RamVector();
-	int k;
-	for (int i=0;i<(*vec1).size;i++)
+	bool f=TRUE;
+	for (int i=0;i<(*vec1).size();i++)
 	{
-		k=rand() % 10000 + (-10000);
-		(*vec1)[i]= k;
-		if ((*vec1)[i] != k )
-			cout<<"Ошибка в доступе к элементу с индексом" <<i;
+		(*vec1)[i]= (int)sin(i)*1000;
 	}
+	for (int i=0; i<(*vec1).size();i++)
+	{
+		if ((*vec1)[i] != (int)sin(i)*1000 )
+		{
+			cout<<"Ошибка в доступе к элементу с индексом" <<i;
+			f=FALSE;
+		}
+		
+	}
+	if(f) cout <<"Проверка доступа к элементу вектора прошла успешно";
 }
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
+	tests();
 	int a;
 	cin>>a;
 	Toplitz_Matrix::Vector* vec = new Toplitz_Matrix::RamVector();
