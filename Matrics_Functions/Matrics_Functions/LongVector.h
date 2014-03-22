@@ -12,5 +12,6 @@ namespace Toplitz_Matrix
 		~Vector(void);
 		virtual TElement& operator[](const TIndex& i) = 0;
 		virtual void push_back(const TElement& el) = 0;
+		virtual int size() = 0;
 	};
 }
