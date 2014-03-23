@@ -13,5 +13,6 @@ namespace Toplitz_Matrix
 		virtual TElement& operator[](const TIndex& i) = 0;
 		virtual void push_back(const TElement& el) = 0;
 		virtual int size() = 0;
+		virtual Vector* creatSame() = 0;
 	};
 }

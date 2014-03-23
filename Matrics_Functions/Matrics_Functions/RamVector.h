@@ -17,6 +17,7 @@ namespace Toplitz_Matrix
 		virtual TElement& operator[](const TIndex& i);
 		virtual void push_back(const TElement& el) ;
 		virtual int size() { return data.size(); }
+		virtual Vector* creatSame() {return new RamVector(this->size());}
 	};
 
 }
