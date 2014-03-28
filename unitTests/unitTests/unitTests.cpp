@@ -14,6 +14,7 @@ using std::cin;
 void tests();
 void testVector1();
 void testVector2();
+Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec);
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -87,5 +88,27 @@ void testVector2()
 void testDurbin()
 {
 
+}
+Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec)
+{
+	Toplitz_Matrix::Vector*b=matrix.creatSame();
+	Toplitz_Matrix::Vector&b1=(*b);
+	int j,k=matrix.size();
+	for(int i=0;i<b1.size();i++)
+	{
+		j=0;
+		for (int g=b1.size()-k; g>0; g--)
+		{
+			b1[i]+=matrix[g]*vec[j];
+			j++;
+		}
+		for( int l=0; l<k; l++)
+		{
+			b1[i]+=matrix[l]*vec[j];
+			j++;
+		}
+		k--;
+	}
+	return b;
 }
 
