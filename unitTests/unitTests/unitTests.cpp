@@ -15,6 +15,7 @@ void tests();
 void testVector1();
 void testVector2();
 Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec);
+void testDurbin();
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -87,8 +88,31 @@ void testVector2()
 }
 void testDurbin()
 {
+	Toplitz_Matrix::Vector* A = new Toplitz_Matrix::RamVector(500);
+	Toplitz_Matrix::Vector& A1=(*A);
+	Toplitz_Matrix::Vector* y=A1.creatSame();
+	Toplitz_Matrix::Vector& y1=(*y);
+	Toplitz_Matrix::Vector* b =A1.creatSame();
+	Toplitz_Matrix::Vector& b1=(*b);
+	bool f=FALSE;
+	for(int i=0; i<500; i++)
+		A1[i] = cos(i)*200;
+	y = Toplitz_Matrix::DurbinAlgorithm(A1);
+	b= MultMatrixVec(A1,y1);
+	for(int j=1; j<500; j++)
+	{ if (b1[j]!=(-A1[j]))
+	{
+		f=TRUE;
+		break;
+	}
+	}
+	if (f)
+		cout<<"Алгоритм Дурбина работает неккоректно";
+	else
+		cout << "Алгоритм Дурбина работает корректно";
 
 }
+
 Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec)
 {
 	Toplitz_Matrix::Vector*b=matrix.creatSame();
