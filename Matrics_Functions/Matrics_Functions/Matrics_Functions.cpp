@@ -14,7 +14,7 @@ namespace Toplitz_Matrix
 		TElement b = 1;
 		TElement a = -matrix[1];
 
-		for(int k = 1; k < matrix.size(); k++)
+		for(int k = 1; k < matrix.size() - 1; k++)
 		{
 			b = (1 - a*a) * b;
 			TElement sum=0;
@@ -24,7 +24,7 @@ namespace Toplitz_Matrix
 
 			for(int i = 1; i < k; i++)
 			{
-				zc[i] = yc[i] + a * yc[k + i -1];
+				zc[i] = yc[i] + a * yc[k + 1 - i];
 			}
 
 			for(int i =1;i<= k;i++)
