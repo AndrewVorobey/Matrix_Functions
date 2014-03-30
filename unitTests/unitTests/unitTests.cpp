@@ -16,6 +16,7 @@ void testVector1();
 void testVector2();
 Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec);
 void testDurbin();
+void testLevinson();
 int main()
 {
 	setlocale(LC_ALL, "Russian");
@@ -31,6 +32,7 @@ void tests()
 	testVector1();
 	testVector2();
 	testDurbin();
+	testLevinson();
 	//тут должны быть вызваны функции-юнит тестов.
 	//Каждый юнит тест должен быть в отдельной функции. Тут только вызовы. 
 }
@@ -110,6 +112,36 @@ void testDurbin()
 		cout<<"Алгоритм Дурбина работает неккоректно";
 	else
 		cout << "Алгоритм Дурбина работает корректно";
+
+}
+void testLevinson()
+{
+	Toplitz_Matrix::Vector* A = new Toplitz_Matrix::RamVector(500);
+	Toplitz_Matrix::Vector& A1=(*A);
+	Toplitz_Matrix::Vector* y=A1.creatSame();
+	Toplitz_Matrix::Vector& y1=(*y);
+	Toplitz_Matrix::Vector* b =A1.creatSame();
+	Toplitz_Matrix::Vector& b1=(*b);
+	Toplitz_Matrix::Vector* v =A1.creatSame();
+	Toplitz_Matrix::Vector& v1=(*v);
+	bool f=FALSE;
+	for(int i=0; i<500; i++)
+		A1[i] = cos(i)*200;
+	for(int i=1; i<500; i++)
+		b1[i] = rand();
+	y = Toplitz_Matrix::LevinsonAlgorithm(A1,b1);
+	v= MultMatrixVec(A1,y1);
+	for(int j=1; j<500; j++)
+	{ if (b1[j]!=(-v1[j]))
+	{
+		f=TRUE;
+		break;
+	}
+	}
+	if (f)
+		cout<<"Алгоритм Левинсона работает неккоректно";
+	else
+		cout << "Алгоритм Левинсона работает корректно";
 
 }
 
