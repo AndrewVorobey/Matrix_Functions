@@ -29,7 +29,7 @@ namespace Toplitz_Matrix
 			else 
 				a = -(alpha + sum)/b;
 
-			for(int i = 1; i < k; i++)
+			for(int i = 1; i <= k; i++)
 				zc[i-1] = yc[i-1] + a * yc[k - i];
 
 			for(int i = 1;i<= k;i++)
