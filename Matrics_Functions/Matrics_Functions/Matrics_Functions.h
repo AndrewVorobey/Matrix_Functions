@@ -8,7 +8,7 @@
 namespace Toplitz_Matrix
 {
 
-	Vector* DurbinAlgorithm(Vector& matrix);
+	Vector* DurbinAlgorithm(Vector& matrix, const TElement& alpha);
 
 	Vector* LevinsonAlgorithm(Vector& matrix, Vector& b);
 

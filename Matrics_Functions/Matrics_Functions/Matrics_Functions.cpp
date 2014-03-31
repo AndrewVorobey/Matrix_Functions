@@ -4,13 +4,13 @@
 namespace Toplitz_Matrix
 {
 
-	Vector* DurbinAlgorithm(Vector& matrix)
+	Vector* DurbinAlgorithm(Vector& matrix ,const TElement& alpha)
 	{
 		Vector* y = matrix.creatSame();
 		Vector& yc = (*y);
 		Vector* z = matrix.creatSame();
 		Vector& zc = (*z);
-		yc[1] = -matrix[1];
+		yc[0] = -matrix[1];
 		TElement b = 1;
 		TElement a = -matrix[1];
 
@@ -19,28 +19,33 @@ namespace Toplitz_Matrix
 			b = (1 - a*a) * b;
 			TElement sum=0;
 			for(int i = 1; i <= k; i++)
-				sum+=matrix[k-i+1]*yc[i];
-			a = -(matrix[k+1] + sum)/b;
+				if(k-i+1 != matrix.size() - 1)
+					sum+=matrix[k-i+1]*yc[i-1];
+				else
+					sum+=alpha*yc[i-1];
+
+			if(k+1 != matrix.size() - 1)
+				a = -(matrix[k+1] + sum)/b;
+			else 
+				a = -(alpha + sum)/b;
 
 			for(int i = 1; i < k; i++)
-			{
-				zc[i] = yc[i] + a * yc[k + i -1];
-			}
+				zc[i-1] = yc[i-1] + a * yc[k - i];
 
-			for(int i =1;i<= k;i++)
-			{
-				yc[i] = zc[i];
-			}
-			yc[k+1] = a;
+			for(int i = 1;i<= k;i++)
+				yc[i-1] = zc[i-1];
+
+
+			yc[k] = a;
 		}
 		return y;
 	}
-/*
+
 	Vector* LevinsonAlgorithm(Vector& matrix, Vector& b)
 	{
-		return ;
+		return &b;
 	}
-	
+	/*	
 	Matrix* TrenchAlgorithm(Vector& matrix)
 	{
 
