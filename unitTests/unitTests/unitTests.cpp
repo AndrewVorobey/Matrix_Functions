@@ -16,6 +16,7 @@ void testVector1();
 void testVector2();
 Toplitz_Matrix::Vector* MultMatrixVec(Toplitz_Matrix::Vector& matrix, Toplitz_Matrix::Vector& vec);
 void testDurbin();
+void testDurbin2();
 void testLevinson();
 int main()
 {
@@ -32,6 +33,7 @@ void tests()
 	testVector1();
 	testVector2();
 	testDurbin();
+	testDurbin2();
 	testLevinson();
 	//тут должны быть вызваны функции-юнит тестов.
 	//Каждый юнит тест должен быть в отдельной функции. Тут только вызовы. 
@@ -96,20 +98,54 @@ void testDurbin()
 	Toplitz_Matrix::Vector& y1=(*y);
 	Toplitz_Matrix::Vector* b =A1.creatSame();
 	Toplitz_Matrix::Vector& b1=(*b);
+	Toplitz_Matrix::TElement param;
 	bool f=FALSE;
 	A1[0]= 1;
 	for(int i=1; i<b1.size(); i++)
-		A1[i] =-300*i+ rand()%(2000*i+301);
-	y = Toplitz_Matrix::DurbinAlgorithm(A1);
+		A1[i] =-300.01*i+ rand();
+	param=-50.07+rand()%(500+51);
+	y = Toplitz_Matrix::DurbinAlgorithm(A1,param);
 	b= MultMatrixVec(A1,y1);
-	for(int j=1; j<b1.size(); j++)
+	for(int j=0; j<b1.size()-1; j++)
 	{
-		if (b1[j]!=(-A1[j]))
+		if (b1[j]!=(-A1[j+1]))
 	{
 		f=TRUE;
 		break;
 	}
 	}
+	if (b1[b1.size()-1]!=(-param)) f=TRUE;
+	if (f)
+		cout<<"\nАлгоритм Дурбина работает неккоректно";
+	else
+		cout << "\nАлгоритм Дурбина работает корректно";
+
+}
+void testDurbin2()
+{
+	Toplitz_Matrix::Vector* A = new Toplitz_Matrix::RamVector(3);
+	Toplitz_Matrix::Vector& A1=(*A);
+	Toplitz_Matrix::Vector* y=A1.creatSame();
+	Toplitz_Matrix::Vector& y1=(*y);
+	Toplitz_Matrix::Vector* b =A1.creatSame();
+	Toplitz_Matrix::Vector& b1=(*b);
+	Toplitz_Matrix::TElement param;
+	bool f=FALSE;
+	A1[0]= 1;
+	A1[1]=0.5;
+	A1[2]=0.2;
+	param=0.1;
+	y = Toplitz_Matrix::DurbinAlgorithm(A1,param);
+	b= MultMatrixVec(A1,y1);
+	for(int j=0; j<b1.size()-1; j++)
+	{
+		if (b1[j]!=(-A1[j+1]))
+	{
+		f=TRUE;
+		break;
+	}
+	}
+	if (b1[b1.size()-1]!=(-param)) f=TRUE;
 	if (f)
 		cout<<"\nАлгоритм Дурбина работает неккоректно";
 	else
