@@ -3,7 +3,7 @@
 namespace Toplitz_Matrix
 {
 	typedef int TIndex;
-	typedef int TElement;
+	typedef double TElement;
 	class Vector
 	{
 		
