@@ -19,12 +19,12 @@ namespace Toplitz_Matrix
 			b = (1 - a*a) * b;
 			TElement sum=0;
 			for(int i = 1; i <= k; i++)
-				if(k-i+1 != matrix.size() - 1)
+				if(k-i+1 != matrix.size() )
 					sum+=matrix[k-i+1]*yc[i-1];
 				else
 					sum+=alpha*yc[i-1];
 
-			if(k+1 != matrix.size() - 1)
+			if(k+1 != matrix.size() )
 				a = -(matrix[k+1] + sum)/b;
 			else 
 				a = -(alpha + sum)/b;
