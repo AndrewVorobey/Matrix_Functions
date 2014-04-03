@@ -43,7 +43,46 @@ namespace Toplitz_Matrix
 
 	Vector* LevinsonAlgorithm(Vector& matrix, Vector& b)
 	{
-		return &b;
+		Vector* y = matrix.creatSame();
+		Vector& yc = (*y);
+		Vector* x = matrix.creatSame();
+		Vector& xc = (*x);
+		Vector* z = matrix.creatSame();
+		Vector& zc = (*z);
+		Vector* v = matrix.creatSame();
+		Vector& vc = (*v);
+		yc[0] = -matrix[1];
+		xc[0] = b[0];
+		TElement betta = 1;
+		TElement a = -matrix[1];
+		TElement m=0;
+		int i;
+		for(int k = 0; k < (matrix.size()-1); k++)
+		{
+			betta = (1 - a*a) * betta;
+			m = b[k+1] / betta;
+			for( i=0; i<=k; i++)
+				m = m-(matrix[i+1] * xc[k-i]) / betta;
+			for( i=0; i<=k; i++)
+			{
+				vc[i] = xc[i] + m * yc[k-i] ;
+				xc[i] = vc[i];
+			}
+			xc[k+1] = m;
+			if ( k < (matrix.size() - 2))
+			{
+				a = -matrix[k+2] / betta ;
+				for( i=0; i<=k; i++)
+					a = a - (matrix[i+1] * yc[k-i]) / betta ;
+				for( i=0; i<=k; i++)
+				{
+					zc[i] = yc[i] + a * yc[k-i];
+					yc[i] = zc[i];
+				}
+				yc[k+1] = a;
+			}
+		}
+		return x;
 	}
 	/*	
 	Matrix* TrenchAlgorithm(Vector& matrix)
