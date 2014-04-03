@@ -119,32 +119,30 @@ void testDurbin()
 }
 void testLevinson()
 {
-	Toplitz_Matrix::Vector* A = new Toplitz_Matrix::RamVector(500);
+	Toplitz_Matrix::Vector* A = new Toplitz_Matrix::RamVector(3);
 	Toplitz_Matrix::Vector& A1=(*A);
-	Toplitz_Matrix::Vector* y=A1.creatSame();
-	Toplitz_Matrix::Vector& y1=(*y);
 	Toplitz_Matrix::Vector* b =A1.creatSame();
 	Toplitz_Matrix::Vector& b1=(*b);
-	Toplitz_Matrix::Vector* v =A1.creatSame();
-	Toplitz_Matrix::Vector& v1=(*v);
 	bool f=FALSE;
-	for(int i=0; i<500; i++)
-		A1[i] = cos(i)*200;
-	for(int i=1; i<500; i++)
-		b1[i] = rand();
-	y = Toplitz_Matrix::LevinsonAlgorithm(A1,b1);
-	v= MultMatrixVec(A1,y1);
-	for(int j=1; j<500; j++)
-	{ if (b1[j]!=(-v1[j]))
+	A1[0]= 1;
+	A1[1]=0.5;
+	A1[2]=0.2;
+	b1[0]= 4;
+	b1[1]=-1;
+	b1[2]=3;
+	Toplitz_Matrix::Vector& y = *(Toplitz_Matrix::LevinsonAlgorithm(A1,b1));
+	Toplitz_Matrix::Vector& v = *(MultMatrixVec(A1,y));
+	for(int j=0; j<b1.size(); j++)
+	{ if (b1[j]!=v[j])
 	{
 		f=TRUE;
 		break;
 	}
 	}
 	if (f)
-		cout<<"Алгоритм Левинсона работает неккоректно";
+		cout<<"\nАлгоритм Левинсона работает неккоректно";
 	else
-		cout << "Алгоритм Левинсона работает корректно";
+		cout << "\nАлгоритм Левинсона работает корректно";
 
 }
 
