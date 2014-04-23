@@ -14,5 +14,7 @@ namespace Toplitz_Matrix
 		virtual void push_back(const TElement& el) = 0;
 		virtual int size() = 0;
 		virtual Vector* creatSame() = 0;
+		bool isPositive();
+		int computeDetermenant(int N = -1);
 	};
 }

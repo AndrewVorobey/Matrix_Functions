@@ -9,5 +9,6 @@ namespace  Toplitz_Matrix
 	public:
 		Matrix(void);
 		~Matrix(void);
+		virtual TElement& at(int i, int j) = 0;
 	};
 }
