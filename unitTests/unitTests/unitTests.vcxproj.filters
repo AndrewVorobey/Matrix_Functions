@@ -44,9 +44,6 @@
     <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\LongVector.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\Matrics_Functions.cpp">
-      <Filter>Заголовочные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\LongMatrix.cpp">
       <Filter>Заголовочные файлы</Filter>
     </ClCompile>

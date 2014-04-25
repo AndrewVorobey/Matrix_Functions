@@ -88,7 +88,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\LongMatrix.cpp" />
     <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\LongVector.cpp" />
-    <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\Matrics_Functions.cpp" />
     <ClCompile Include="..\..\Matrics_Functions\Matrics_Functions\RamVector.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
