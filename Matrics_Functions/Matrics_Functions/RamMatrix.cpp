@@ -16,6 +16,10 @@ namespace  Toplitz_Matrix
 
 	RamMatrix::~RamMatrix(void)
 	{
+		for(int i = 0; i<length; i++){
+			delete data[i];
+		}
+		delete[] data;
 	}
 
 	TElement& RamMatrix::at(int i, int j)
